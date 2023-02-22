@@ -4,10 +4,12 @@ import { getPostData, getPostsFiles } from "lib/posts-util";
 import PostContent from "components/posts/post-detail/post-content";
 
 const PostDetail = (props) => {
+  const { postData } = props;
+  const { title, excerpt } = postData;
   return (
     <Fragment>
-      <META title={props?.postData.title} content={props?.postData.excerpt} />
-      <PostContent post={props.postData} />
+      <META title={title} content={excerpt} />
+      <PostContent post={postData} />
     </Fragment>
   );
 };
@@ -30,7 +32,7 @@ export function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
 
