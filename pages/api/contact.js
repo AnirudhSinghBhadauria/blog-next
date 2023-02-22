@@ -2,6 +2,9 @@
 import { MongoClient } from "mongodb";
 
 export default async function handler(req, res) {
+  const mongoDB = process.env.mongodb_password;
+  const mongoDB_Client = `mongodb+srv://NEXTBLOG23:${mongoDB}@next-blog.ivj4ni4.mongodb.net/?retryWrites=true&w=majority`;
+
   if (req.method === "POST") {
     const { email, name, message } = req.body;
 
@@ -26,9 +29,7 @@ export default async function handler(req, res) {
 
     let client;
     try {
-      client = await MongoClient.connect(
-        "mongodb+srv://NEXTBLOG23:xnwk6VsQz2ju9lci@next-blog.ivj4ni4.mongodb.net/?retryWrites=true&w=majority"
-      );
+      client = await MongoClient.connect(mongoDB_Client);
     } catch (error) {
       res.status(404).json({ message: "Could not connect to database" });
       console.log(error.code, error.message);

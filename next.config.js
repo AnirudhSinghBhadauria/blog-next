@@ -1,6 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+module.exports = {
+  env: {
+    mongodb_password: "xnwk6VsQz2ju9lci",
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};

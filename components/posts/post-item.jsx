@@ -19,7 +19,15 @@ const PostItem = (props) => {
     <li className={classes.post}>
       <Link href={href} aria-label="Post-Details">
         <div className={classes.image}>
-          <Image priority='true' src={imagePath} width="300" height="200" alt={title} layout='responsive' />
+          <Image
+            priority="true"
+            src={imagePath}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+          />
         </div>
         <div className={classes.content}>
           <h3>{title}</h3>

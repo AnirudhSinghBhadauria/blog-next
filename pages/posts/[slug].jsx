@@ -6,7 +6,7 @@ import PostContent from "components/posts/post-detail/post-content";
 const PostDetail = (props) => {
   return (
     <Fragment>
-      <META title={props.postData.title} content={props.postData.excerpt} />
+      <META title={props?.postData.title} content={props?.postData.excerpt} />
       <PostContent post={props.postData} />
     </Fragment>
   );
@@ -30,7 +30,7 @@ export function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
