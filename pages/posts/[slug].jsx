@@ -8,7 +8,7 @@ const PostDetail = (props) => {
   const { title, excerpt } = postData;
   return (
     <Fragment>
-      <META title={title} content={excerpt} />
+      <META title={props && title} content={props && excerpt} />
       <PostContent post={postData} />
     </Fragment>
   );
