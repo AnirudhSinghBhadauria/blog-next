@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
+import META from "components/Head/Head";
 import { getPostData, getPostsFiles } from "lib/posts-util";
 import PostContent from "components/posts/post-detail/post-content";
 
 const PostDetail = (props) => {
-  return <PostContent post={props.postData} />;
+  return (
+    <Fragment>
+      <META title={props.postData.title} content={props.postData.excerpt} />
+      <PostContent post={props.postData} />
+    </Fragment>
+  );
 };
 
 export function getStaticProps(context) {
@@ -24,7 +30,7 @@ export function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
-    fallback: true, 
+    fallback: true,
   };
 }
 

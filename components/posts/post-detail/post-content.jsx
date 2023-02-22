@@ -16,7 +16,7 @@ const PostContent = ({ post }) => {
           src={`/images/posts/${post.slug}/${image.src}`}
           width="600"
           height="300"
-          alt={image.alt}
+          alt={image.title}
           priority="true"
         />
       );
@@ -33,7 +33,7 @@ const PostContent = ({ post }) => {
               src={`/images/posts/${post.slug}/${image.properties.src}`}
               width="600"
               height="300"
-              alt={image.alt}
+              alt={post.slug}
               priority="true"
             />
           </div>

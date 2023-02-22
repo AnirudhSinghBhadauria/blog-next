@@ -48,9 +48,6 @@ const ContectForm = () => {
       });
 
       setReqStatus("success");
-      emailRef.current.value === "";
-      nameRef.current.value === "";
-      messageRef.current.value === "";
       
     } catch (error) {
       setError(error.message);
